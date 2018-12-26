@@ -1,0 +1,45 @@
+<view class='edit container'>
+  <view class='userInfo-container'>
+    <image bindtap='changeAvatar' class='user-avatar' src='{{userInfo.avatarUrl}}'></image>
+    <text>点击换头像</text>
+  </view>
+  <view class='wrapper'>
+    <view class='sub-wrapper'>
+      <text>昵称</text>
+      <block wx:if='{{userInfo.username}}'>
+        <input id='username' bindinput='changeData' bindblur='changeName' value='{{userInfo.username}}' class='username-input'></input>
+      </block>
+      <block wx:else>
+        <text>勾勾用户</text>
+      </block>
+    </view>
+    <view class='sub-wrapper'>
+      <text>邮箱</text>
+      <view wx:if='{{userInfo.emailVerified}}' class='info-wrapper'>
+        <text>{{mosaicedEmail}}</text>
+      </view>
+      <button wx:else bindtap='showEmailSettingWindow' plain='true'>去关联</button>
+    </view>
+    <view class='sub-wrapper'>
+      <text>微信</text>
+      <view wx:if='{{userInfo.weAppLinked}}' bindtap='unbindWeApp' class='info-wrapper'>
+        <text>已关联</text>
+        <image class='arrow-btn' src='./imgs/arrow.png'></image>
+      </view>
+      <button wx:else bindgetuserinfo='linkWeChat' open-type='getUserInfo' plain='true'>去关联</button>
+    </view>
+  </view>
+  <view wx:if='{{linkEmailNeeded}}' class='float-window'>
+    <form bindsubmit='linkEmail'>
+      <view class='header'>关联邮箱</view>
+      <view class='input-container'>
+        <text class='statement'>请输入需要关联的邮箱</text>
+        <input id='email' value='{{emailDraft}}' placeholder='you@example.com' confirm-type='next' class='email-input' bindinput='changeData' bindconfirm='linkEmail'></input>
+      </view>
+      <view class='btns-container'>
+        <button bindtap='cancelLinkEmail' hover-class='none' plain='true'>放弃</button>
+        <button form-type='submit' hover-class='none' plain='true'>关联</button>
+      </view>
+    </form>
+  </view>
+</view>

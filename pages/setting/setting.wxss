@@ -1,0 +1,14 @@
+.setting {
+  background-color: #fafafa;
+}
+.option-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  margin-top: 12px;
+  border: 1rpx solid #eaeaea;
+  background-color: #fff;
+  box-sizing: border-box;
+}

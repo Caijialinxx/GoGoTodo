@@ -1,0 +1,125 @@
+.edit {
+  background-color: #fafafa;
+}
+
+.userInfo-container {
+  background-color: #fff;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 90%;
+  color: #888;
+}
+
+.user-avatar {
+  flex-shrink: 0;
+  border: 1rpx solid #eaeaea;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  margin-top: 16px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.sub-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.sub-wrapper:last-child {
+  border-bottom: none;
+}
+
+.username-input {
+  text-align: right;
+}
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+}
+.arrow-btn {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 6px;
+}
+
+button[plain] {
+  line-height: 1em;
+  font-size: 1em;
+  margin: 0;
+  padding: 6px;
+}
+
+.float-window {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.float-window form {
+  background-color: #fff;
+  width: 75%;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 1px #ffffff88;
+  text-align: center;
+}
+.header {
+  font-size: 110%;
+  font-weight: 600;
+  margin-top: 16px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+}
+.input-container .statement {
+  font-size: 90%;
+  color: #888;
+}
+.input-container .email-input {
+  border: 1rpx solid #eaeaea;
+  margin: 4px 0;
+  padding: 4px;
+  text-align: center;
+}
+.btns-container {
+  border-top: 1rpx solid #eaeaea;
+  display: flex;
+}
+.btns-container button {
+  border: none;
+  border-right: 1rpx solid #eaeaea;
+  width: 50%;
+  padding: 14px;
+  border-radius: 0;
+}
+.btns-container button:last-child {
+  color: #09bb07;
+  border-right: none;
+}

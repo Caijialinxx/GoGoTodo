@@ -1,0 +1,28 @@
+<view class='signup container'>
+  <form bindsubmit='verifyInfo'>
+    <view class='self-container'>
+      <view class='input-container'>
+        <image class='inputImg' src='imgs/email.png'></image>
+        <input id='email' data-nextinput='nickname' name='email' value='{{values.email}}' class='infoInput' bindinput='changeData' confirm-type='next' placeholder='you@example.com' focus='{{focusSettings.email}}' bindconfirm='toNext'></input>
+      </view>
+      <view class='input-container'>
+        <image class='inputImg' src='imgs/name.png'></image>
+        <input id='nickname' data-nextinput='password' name='nickname' value='{{values.nickname}}' class='infoInput' bindinput='changeData' confirm-type='next' placeholder='give a nickname' focus='{{focusSettings.nickname}}' bindconfirm='toNext'></input>
+      </view>
+      <view class='input-container'>
+        <image class='inputImg' src='imgs/pwd.png'></image>
+        <input id='password' data-nextinput='password_confirm' name='password' value='{{values.password}}' class='infoInput' password bindinput='changeData' confirm-type='next' placeholder='create a password' focus='{{focusSettings.password}}' bindconfirm='toNext'></input>
+      </view>
+      <view class='input-container'>
+        <image class='inputImg' src='imgs/pwd_confirm.png'></image>
+        <input id='password_confirm' name='password_confirm' value='{{values.password_confirm}}' class='infoInput' password bindinput='changeData' confirm-type='done' placeholder='confirm your password' focus='{{focusSettings.password_confirm}}' bindconfirm='toSubmit'></input>
+      </view>
+      <view class='options-container'>
+        <navigator url='' class='optionsText'>已有账号？去登录></navigator>
+      </view>
+      <view>
+        <button class='signupBtn' form-type='submit'>注册</button>
+      </view>
+    </view>
+  </form>
+</view>

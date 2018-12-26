@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='header'>
+    <view class='add-container'>
+      <image class='add-image' src='imgs/add.png'></image>
+      <input bindinput='changeData' bindconfirm='addTodo' value='{{todoDraft}}' class='add-input' placeholder='Add Todos...' confirm-hold='{{true}}'></input>
+    </view>
+  </view>
+  <scroll-view scroll-y class='lists-container'>
+    <block wx:for="{{todos}}" wx:key="id">
+      <view id='{{item.id}}' bindtap='updateTodo' bindlongpress='deleteTodo' class='item-container'>
+        <view class='icon-container'>
+          <icon class='icon {{item.status}}' type='{{item.status}}' size='22'></icon>
+        </view>
+        <view class='text-container'>
+          <navigator class='edit-navigator' data-editable='{{true}}' url='./edit/todo-edit'>{{item.content}}</navigator>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

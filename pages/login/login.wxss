@@ -1,0 +1,63 @@
+.login {
+  justify-content: space-between;
+  padding: 50px 38px;
+}
+form {
+  flex: 1;
+  margin: 20px 0;
+  width: 100%;
+}
+.self-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+.input-container {
+  border: 1rpx solid #eaeaea;
+  padding: 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.inputImg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 12px;
+}
+.infoInput {
+  flex: 1;
+}
+.options-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 90%;
+  color: #888;
+}
+.loginBtn {
+  margin: 16px 0;
+  border: none;
+}
+
+.wechat-container {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 90%;
+  color: #888;
+}
+.wechatBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: inherit;
+  margin: 10px 0;
+}
+.wechatImg {
+  width: 100%;
+  height: 100%;
+}

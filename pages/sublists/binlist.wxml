@@ -1,0 +1,25 @@
+<view class='sublist container'>
+  <view class='header'>
+    <icon class='header-icon' type='warn' size='24'></icon>
+    <text class='header-title'>已过期</text>
+  </view>
+  <block wx:if='{{todos}}'>
+    <view class='list-container'>
+      <view wx:for="{{todos}}" wx:key="id" id='{{item.id}}' bindtap='updateTodo' bindlongpress='deleteTodo' class='item-wrapper'>
+        <image data-actionType='add' class='add-image' src='imgs/add.png'></image>
+        <navigator class='item' data-actiontype='edit' url='../main/edit/todo-edit'>{{item.content}}</navigator>
+      </view>
+    </view>
+    <view class='options-container'>
+      <view bindtap='restoreAll' class='btn'>
+        <text>恢复所有</text>
+      </view>
+      <view bindtap='deleteAll' class='btn deleteAll'>
+        <text>清空已过期</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='null-container'>空</view>
+  </block>
+</view>

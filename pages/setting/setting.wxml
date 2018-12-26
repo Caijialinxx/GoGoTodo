@@ -1,0 +1,10 @@
+<view class='container setting'>
+  <view class='option-wrapper'>
+    <text>主页隐藏已完成</text>
+    <switch checked='{{notShowSuccess}}' bindchange='switchSuccess'></switch>
+  </view>
+  <view class='option-wrapper'>
+    <text>主页隐藏已过期</text>
+    <switch checked='{{notShowOverdue}}' bindchange='switchOverdue'></switch>
+  </view>
+</view>

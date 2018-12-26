@@ -1,0 +1,49 @@
+<view class='container profile'>
+  <block wx:if='{{userInfo}}'>
+    <view class='userInfo-container'>
+      <image class='user-avatar' src='{{userInfo.avatarUrl}}'></image>
+      <view class='text-container'>
+        <text class='user-name'>{{userInfo.username}}</text>
+      </view>
+    </view>
+    <view class='options-container'>
+      <navigator hover-class='none' url='./edit/profile-edit' class='wrapper'>
+        <image class='option-image' src='imgs/profile.png'></image>
+        <text class='option-text'>个人信息</text>
+      </navigator>
+      <view class='mutiple wrapper'>
+        <navigator hover-class='none' url='../sublists/donelist' class='sub-wrapper'>
+          <image class='option-image' src='imgs/done.png'></image>
+          <text class='option-text sub-border'>已完成</text>
+        </navigator>
+        <navigator hover-class='none' url='../sublists/binlist' class='sub-wrapper'>
+          <image class='option-image' src='imgs/bin.png'></image>
+          <text class='option-text sub-border'>已过期</text>
+        </navigator>
+      </view>
+      <navigator hover-class='none' url='../setting/setting' class='wrapper'>
+        <image class='option-image' src='imgs/setting.png'></image>
+        <text class='option-text'>设置</text>
+      </navigator>
+      <view hover-class='none' bindtap='clearStorage' class='wrapper storage'>
+        <image class='option-image' src='imgs/clear.png'></image>
+        <text class='option-text'>清理缓存</text>
+        <text class='detail-text'>{{storageSize}} KB</text>
+      </view>
+      <view class='logout wrapper'>
+        <text class='.logoutBtn' bindtap='logout'>退出登录</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='initial-container'>
+      <image style='width: 100%;' mode='aspectFill' src='imgs/goup.jpg'></image>
+    </view>
+    <view class='options-container'>
+      <view class='navigator-wrapper'>
+        <navigator class='.loginBtn' url='../login/login'>登录</navigator>
+        <text class='statement'>登录后可同步账号下的记录，否则数据只能临时保存</text>
+      </view>
+    </view>
+  </block>
+</view>

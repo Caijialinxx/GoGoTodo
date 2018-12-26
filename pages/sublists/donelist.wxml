@@ -1,0 +1,29 @@
+<view class='sublist container'>
+  <view class='header'>
+    <icon class='header-icon' type='success' size='24'></icon>
+    <text class='header-title'>已完成</text>
+  </view>
+  <block wx:if='{{todos}}'>
+    <view class='list-container'>
+      <view wx:for="{{todos}}" wx:key="id" id='{{item.id}}' bindtap='updateTodo' bindlongpress='deleteTodo' class='item-wrapper'>
+        <view class='icon-container'>
+          <icon class='icon {{item.status}}' type='{{item.status}}' size='22' data-actiontype='changeStatus'></icon>
+        </view>
+        <view class='text-container'>
+          <navigator class='edit-navigator' data-actiontype='edit' url='../main/edit/todo-edit'>{{item.content}}</navigator>
+        </view>
+      </view>
+    </view>
+    <view class='options-container'>
+      <view bindtap='undoneAll' class='btn'>
+        <text>标记所有未完成</text>
+      </view>
+      <view bindtap='deleteAll' class='btn deleteAll'>
+        <text>清空已完成</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='null-container'>空</view>
+  </block>
+</view>

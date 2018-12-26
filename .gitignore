@@ -1,0 +1,5 @@
+utils/util.js
+utils/verifyEmail.js
+libs/av-live-query-min.js
+private.js
+*.DS_Store

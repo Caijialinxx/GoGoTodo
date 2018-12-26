@@ -1,0 +1,12 @@
+<view class="cropper container">
+  <canvas class="cropper-canvas" disable-scroll="true" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" canvas-id="{{id}}">
+  </canvas>
+  <view class="cropper-buttons">
+    <view class="upload" bindtap="reChoose">
+      重选
+    </view>
+    <view class="getCropperImage" bindtap="getCropperImage">
+      完成
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/main/edit/todo-edit",
+    "pages/profile/profile",
+    "pages/profile/edit/profile-edit",
+    "pages/profile/edit/cropper/cropper",
+    "pages/sublists/donelist",
+    "pages/sublists/binlist",
+    "pages/setting/setting",
+    "pages/login/login",
+    "pages/signup/signup"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "勾勾TODO",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#09bb07",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "iconPath": "pages/images/logo.png",
+        "selectedIconPath": "pages/images/logo-selected.png",
+        "text": "TODOS"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "iconPath": "pages/images/profile.png",
+        "selectedIconPath": "pages/images/profile-selected.png",
+        "text": "ME"
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+.edit {
+  background-color: #fafafa;
+}
+.item-container {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1rpx solid #eaeaea;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.icon-container {
+  width: 24px;
+  height: 24px;
+  padding-right: 16px;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+.undone {
+  border: 2px solid #888;
+}
+.success {
+  color: #fff;
+}
+.input-container {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.edit-input {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.options-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 15px 20px;
+  border-top: 1rpx solid #eaeaea;
+  border-bottom: 1rpx solid #eaeaea;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.mutiple {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sub-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1rpx solid #eaeaea;
+}
+.sub-wrapper:last-child {
+  border-bottom: none;
+}
+.text-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.option-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+.pickers-container {
+  display: flex;
+  align-items: center;
+  font-size: 90%;
+}
+picker {
+  padding-left: 4px;
+}
+
+textarea {
+  width: 100%;
+}
+.save {
+  font-size: 110%;
+  color: #09bb07;
+  margin: 20px 0;
+  justify-content: center;
+}

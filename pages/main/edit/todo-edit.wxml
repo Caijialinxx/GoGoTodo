@@ -1,0 +1,45 @@
+<view class='edit container'>
+  <view class='item-container'>
+    <view id='status' bindtap='changeData' class='icon-container'>
+      <icon class='icon {{todo.status}}' type='{{todo.status}}' size='24'></icon>
+    </view>
+    <view class='input-container'>
+      <input id='content' class='edit-input' value='{{todo.content}}' bindinput='changeData'></input>
+    </view>
+  </view>
+  <view class='options-container'>
+    <view class='mutiple wrapper'>
+      <view class='sub-wrapper'>
+        <view id='setReminder' bindtap='changeData' class='text-container'>
+          <image class='option-image' src='../imgs/clock.png'></image>
+          <text class='option-text'>提醒我</text>
+        </view>
+        <view class='pickers-container'>
+          <picker id='reminder-date' mode="date" value="{{todo.reminder.date}}" bindchange="changeData">
+            {{todo.reminder.date}}
+          </picker>
+          <picker id='reminder-time' mode="time" value="{{todo.reminder.time}}" bindchange="changeData">
+            {{todo.reminder.time}}
+          </picker>
+        </view>
+      </view>
+      <view class='sub-wrapper'>
+        <view id='setOverdue' bindtap='changeData' class='text-container'>
+          <image class='option-image' src='../imgs/calendar.png'></image>
+          <text>设置过期时间</text>
+        </view>
+        <view class='pickers-container'>
+          <picker id='overdue' mode="date" value="{{todo.overdue.date}}" bindchange="changeData">
+            {{todo.overdue.date}}
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class='wrapper'>
+      <textarea id='remark' bindinput='changeData' value='{{todo.remark}}' placeholder='添加备注'></textarea>
+    </view>
+    <view class='save wrapper'>
+      <text bindtap='save'>保存更改</text>
+    </view>
+  </view>
+</view>
