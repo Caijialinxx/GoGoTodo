@@ -19,20 +19,21 @@
   },
   "tabBar": {
     "color": "#bbbbbb",
-    "selectedColor": "#09bb07",
+    "selectedColor": "#ffab4b",
     "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/main/main",
-        "iconPath": "pages/images/logo.png",
-        "selectedIconPath": "pages/images/logo-selected.png",
-        "text": "TODOS"
+        "iconPath": "pages/images/logo_.png",
+        "selectedIconPath": "pages/images/logo.png",
+        "text": "TODOS",
+        "selectedColor": "#ffab4b"
       },
       {
         "pagePath": "pages/profile/profile",
-        "iconPath": "pages/images/profile.png",
-        "selectedIconPath": "pages/images/profile-selected.png",
+        "iconPath": "pages/images/profile_.png",
+        "selectedIconPath": "pages/images/profile.png",
         "text": "ME"
       }
     ]
