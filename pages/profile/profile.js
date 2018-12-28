@@ -3,7 +3,7 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: null,
+    userInfo: app.globalData.userInfo,
     storageSize: undefined
   },
   onShow: function() {

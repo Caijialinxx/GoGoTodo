@@ -5,6 +5,9 @@ App({
     let user = getCurrentUser()
     this.globalData.userInfo = user ? user : wx.getStorageSync('login')
     if (this.globalData.userInfo.id) {
+      wx.showLoading({
+        title: '加载中...',
+      })
       this.fillData()
     } else {
       wx.showToast({
@@ -17,7 +20,7 @@ App({
   globalData: {
     todos: null,
     options: {
-      notShowSuccess: true,
+      notShowSuccess: false,
       notShowOverdue: true
     },
     userInfo: null
@@ -30,6 +33,7 @@ App({
   fillData: function () {
     TodoModel.fetch(items => {
       this.globalData.todos = items
+      wx.hideLoading()
     }, (error) => {
       wx.showToast({
         title: error,

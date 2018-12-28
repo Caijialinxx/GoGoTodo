@@ -42,7 +42,7 @@
     <view class='options-container'>
       <view class='navigator-wrapper'>
         <navigator class='.loginBtn' url='../login/login'>登录</navigator>
-        <text class='statement'>登录后可同步账号下的记录，否则数据只能临时保存</text>
+        <text class='statement'>登录后可同步账号下的记录，否则无法使用</text>
       </view>
     </view>
   </block>
