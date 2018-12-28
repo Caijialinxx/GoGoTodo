@@ -27,64 +27,62 @@ Page({
     })
   },
   addTodo: function () {
-    let todosCopy = JSON.parse(JSON.stringify(this.data.todos)),
-      newTodo = {
-        content: this.data.todoDraft,
-        status: 'undone',
-        remark: '',
-        order: this.data.maxOrder + 1,
-        reminder: null,
-        overdue: null
-      }
-    TodoModel.create(newTodo,
-      (id) => {
-        newTodo.id = id
-        todosCopy.push(newTodo)
-        app.globalData.todos.push(newTodo)
-        this.setData({
-          todoDraft: '',
-          maxOrder: newTodo.order,
-          todos: todosCopy
+    if (this.data.todoDraft.trim()) {
+      let todosCopy = JSON.parse(JSON.stringify(this.data.todos)),
+        newTodo = {
+          content: this.data.todoDraft,
+          status: 'undone',
+          remark: '',
+          order: this.data.maxOrder + 1,
+          reminder: null,
+          overdue: null
+        }
+      TodoModel.create(newTodo,
+        (id) => {
+          newTodo.id = id
+          todosCopy.push(newTodo)
+          app.globalData.todos.push(newTodo)
+          this.setData({
+            todoDraft: '',
+            maxOrder: newTodo.order,
+            todos: todosCopy
+          })
+          setTimeout(() => {
+            wx.pageScrollTo({ scrollTop: 9999 })
+          }, 150)
+        },
+        (error) => {
+          wx.showToast({
+            title: error,
+            icon: 'none'
+          })
         })
-        setTimeout(() => {
-          wx.pageScrollTo({ scrollTop: 9999 })
-        }, 150)
-      },
-      (error) => {
-        wx.showToast({
-          title: error,
-          icon: 'none'
-        })
+    } else {
+      this.setData({
+        todoDraft: ''
       })
+    }
   },
   showTodos: function (rawData) {
-    console.log(rawData)
     if (app.globalData.userInfo) {
-      if (arguments[1]) {
-        rawData.splice(arguments[1], 1)
-        this.setData({
-          todos: rawData
+      this.setData({ maxOrder: rawData[rawData.length - 1].order })
+      let shouldShow, { notShowSuccess, notShowOverdue } = app.globalData.options
+      if (notShowSuccess && notShowOverdue) {
+        shouldShow = rawData.filter(item => {
+          return item.status === 'undone' && (item.overdue === null || item.overdue.value > Date.now())
         })
+      } else if (!notShowSuccess && !notShowOverdue) {
+        shouldShow = rawData
+      } else if (notShowSuccess) {
+        // 不显示已完成但显示已过期
+        shouldShow = rawData.filter(item => item.status !== 'success')
       } else {
-        this.setData({ maxOrder: rawData[rawData.length - 1].order })
-        let shouldShow, { notShowSuccess, notShowOverdue } = app.globalData.options
-        if (notShowSuccess && notShowOverdue) {
-          shouldShow = rawData.filter(item => {
-            return item.status === 'undone' && (item.overdue === null || item.overdue.value > Date.now())
-          })
-        } else if (!notShowSuccess && !notShowOverdue) {
-          shouldShow = rawData
-        } else if (notShowSuccess) {
-          // 不显示已完成但显示已过期
-          shouldShow = rawData.filter(item => item.status !== 'success')
-        } else {
-          // 不显示已过期但显示已完成
-          shouldShow = rawData.filter(item => (item.overdue === null || item.overdue.value > Date.now()))
-        }
-        this.setData({
-          todos: shouldShow
-        })
+        // 不显示已过期但显示已完成
+        shouldShow = rawData.filter(item => (item.overdue === null || item.overdue.value > Date.now()))
       }
+      this.setData({
+        todos: shouldShow
+      })
     } else {
       this.setData({
         todos: []
@@ -151,10 +149,10 @@ Page({
                 break
               }
             }
+            todosCopy.splice(target.index, 1)
             this.setData({
               todos: todosCopy,
             })
-            this.showTodos(todosCopy, target.index)
           }, (error) => {
             wx.showToast({
               title: error,
