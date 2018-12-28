@@ -17,7 +17,7 @@
           <text class='option-text sub-border'>已完成</text>
         </navigator>
         <navigator hover-class='none' url='../sublists/binlist' class='sub-wrapper'>
-          <image class='option-image' src='imgs/bin.png'></image>
+          <image class='option-image' src='imgs/warning.png'></image>
           <text class='option-text sub-border'>已过期</text>
         </navigator>
       </view>
