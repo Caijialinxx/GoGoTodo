@@ -80,7 +80,6 @@ Page({
       })
     } else {
       signUp(email, nickname, password, (user) => {
-        app.globalData.userInfo = user
         wx.showModal({
           title: '验证邮件已发送',
           content: `已向你的邮箱【${email.trim()}】发送验证邮件，请转至邮箱查收并进行验证！`,
