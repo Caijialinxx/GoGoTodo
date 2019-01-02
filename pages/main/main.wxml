@@ -5,16 +5,27 @@
       <input bindinput='changeData' bindconfirm='addTodo' value='{{todoDraft}}' class='add-input' placeholder='Add Todos...' confirm-hold='{{true}}'></input>
     </view>
   </view>
-  <scroll-view scroll-y class='lists-container'>
-    <block wx:for="{{todos}}" wx:key="id">
-      <view id='{{item.id}}' bindtap='updateTodo' bindlongpress='deleteTodo' class='item-container'>
-        <view class='icon-container'>
-          <icon class='icon {{item.status}}' type='{{item.status}}' size='22'></icon>
+  <scroll-view scroll-y class='scroll-wrapper {{ needRefresh ? "refreshing" : "" }}' bindscroll='onScroll'>
+    <view class='refresh-tips'>松开刷新</view>
+    <view class='refresh-header {{ needRefresh ? "refreshing" : "" }}'>
+      <text class='text'>刷新中...</text>
+      <text class='line'></text>
+    </view>
+    <view bindtouchend='onTouchEnd' class='lists-container'>
+      <block wx:for="{{todos}}" wx:key="id">
+        <view id='{{item.id}}' bindtap='updateTodo' bindlongpress='deleteTodo' class='item-container'>
+          <view class='icon-container'>
+            <icon class='icon {{item.status}}' type='{{item.status}}' size='22'></icon>
+          </view>
+          <view class='text-container'>
+            <navigator class='edit-navigator' data-editable='{{true}}' url='./edit/todo-edit'>{{item.content}}</navigator>
+          </view>
         </view>
-        <view class='text-container'>
-          <navigator class='edit-navigator' data-editable='{{true}}' url='./edit/todo-edit'>{{item.content}}</navigator>
-        </view>
+      </block>
+      <view class='isNull' wx:if="{{todos.length === 0}}">
+        <text>暂无待办</text>
+        <text>您可在「Add Todos...」中输入新待办并回车添加</text>
       </view>
-    </block>
+    </view>
   </scroll-view>
 </view>

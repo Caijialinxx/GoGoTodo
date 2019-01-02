@@ -6,6 +6,8 @@ Page({
     todos: [],
     maxOrder: undefined,
     todoDraft: '',
+    needRefresh: false,
+    pulldownHeight: 0,
   },
   onLoad: function () {
     TodoModel.fetch(items => {
@@ -20,6 +22,35 @@ Page({
   },
   onShow: function () {
     this.showTodos(app.globalData.todos)
+  },
+  onTouchEnd: function (e) {
+    if (this.data.pulldownHeight > 50) {
+      this.setData({ needRefresh: true })
+      TodoModel.fetch(items => {
+        app.globalData.todos = items
+        this.showTodos(items)
+        this.setData({ needRefresh: false })
+        wx.showToast({
+          title: '更新完成！',
+          icon: 'success'
+        })
+      }, (error) => {
+        wx.showToast({
+          title: error,
+          icon: 'none'
+        })
+      })
+    }
+  },
+  onScroll: function ({ detail: { scrollTop, scrollHeight } }) {
+    if (scrollTop < 0) {
+      this.setData({ pulldownHeight: -scrollTop })
+    } else if (scrollTop > 0) {
+      this.setData({
+        needRefresh: false,
+        pulldownHeight: 0,
+      })
+    }
   },
   changeData: function ({ detail: { value } }) {
     this.setData({
@@ -64,7 +95,7 @@ Page({
     }
   },
   showTodos: function (rawData) {
-    if (app.globalData.userInfo) {
+    if (app.globalData.userInfo && rawData && rawData.length > 0) {
       this.setData({ maxOrder: rawData[rawData.length - 1].order })
       let shouldShow, { notShowSuccess, notShowOverdue } = app.globalData.options
       if (notShowSuccess && notShowOverdue) {
